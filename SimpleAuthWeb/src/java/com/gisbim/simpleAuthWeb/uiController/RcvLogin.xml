@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="RcvLogin">
+    <resultMap id="hashmap" type="java.util.HashMap"/>
+    
+    <resultMap id="userForLogin" type="com.gisbim.simpleAuthWeb.persist.PriUser">
+        <result column="user_id"   property="id"       jdbcType="INTEGER" />
+        <result column="account"   property="account"  jdbcType="VARCHAR" />
+        <result column="user_Name" property="userName" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <resultMap id="dutys" type="com.gisbim.simpleAuthWeb.persist.Role" >
+        <result column="id"        property="id"        jdbcType="INTEGER" />
+        <result column="role_name" property="roleName"  jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <resultMap id="fun" type="com.gisbim.simpleAuthWeb.persist.Fun" >
+        <result column="id"             property="id"            jdbcType="INTEGER" />
+        <result column="parent_fun_id"  property="parentFunId.id"   jdbcType="INTEGER" />
+        <result column="fun_code"       property="funCode"       jdbcType="VARCHAR" />
+        <result column="fun_type"       property="funType"       jdbcType="VARCHAR" />
+        <result column="layer"          property="layer"         jdbcType="VARCHAR" />
+        <result column="layer_seq"      property="layerSeq"      jdbcType="INTEGER" />
+        <result column="fun_name"       property="funName"       jdbcType="VARCHAR" />
+        <result column="fun_path"       property="funPath"       jdbcType="VARCHAR" />
+        <result column="boot_flag"      property="bootFlag"      jdbcType="VARCHAR" />
+    </resultMap>
+          
+    <select id="searchUser" parameterType="Map" resultMap="hashmap">
+        SELECT U.ID, U.ACCOUNT, U.ENCRYPT_TYPE
+        FROM PRI.PRI_USER U
+        WHERE U.ACCOUNT         = #{account};
+    </select>
+    
+    <select id="searchUserInfo" parameterType="Map" resultMap="userForLogin">
+        SELECT U.ID, U.ACCOUNT,  U.USER_NAME,  U.ENCRYPT_PASSWD, U.ENCRYPT_TYPE
+        FROM PRI.PRI_USER U
+        WHERE U.ACCOUNT         = #{account} 
+          AND U.ENCRYPT_PASSWD  = #{password};
+    </select>
+    
+    <select id="searchDutyInfo" parameterType="Map" resultMap="dutys">
+        SELECT R.ID, R.ROLE_NAME
+        FROM PRI.DUTY D, PRI.ROLE R
+        WHERE D.ROLE_ID = R.ID
+          AND D.USER_ID = #{user_id}
+          <![CDATA[
+          AND D.VALID_AFTER  <= #{now}
+          AND D.VALID_BEFORE >  #{now}
+          ]]>
+    </select>
+
+    <select id="getFunAuth" parameterType="Integer" resultMap="fun">
+        SELECT F.ID,        F.PARENT_FUN_ID, F.FUN_CODE, F.FUN_TYPE, F.LAYER,
+               F.LAYER_SEQ, F.FUN_NAME,      F.FUN_PATH, F.BOOT_FLAG
+        FROM PRI.FUN F, PRI.FUN_AUTH A
+        WHERE F.ACTIVE_FLAG='Y' 
+          AND F.ID      = A.FUN_ID 
+          AND A.Role_ID = ${value}
+        ORDER BY F.ID;
+    </select>
+</mapper>

@@ -1,0 +1,58 @@
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>
+                    <hbox>
+                        <label id="" value="*參數類別"  style="color:blue" />
+                        <combobox id="paraCatalogue" width="120px">
+
+                        </combobox>
+                    </hbox>
+                    <hbox>
+                        <label id="" value="參數名稱"  style="color:blue"/>
+                        <textbox id="paraName" value=""/>
+                    </hbox>
+                    <hbox>
+                        <label id="" value="參數值"  style="color:blue"/>
+                        <textbox id="paraValue" value=""/>
+                    </hbox>
+                    
+
+                </row>
+                <row spans="3">
+                    <hbox>
+                        <label id="" value="多國語言參數值"  style="color:blue"/>
+                        <textbox id="paraI18n" value=""/>
+                    </hbox>
+                    </row>
+
+
+                <row spans="3">
+                    <hbox align="end" widths="500px">
+                        <label />
+                        <button label="新增" />
+                        <button label="修改" />
+                        <button label="刪除" />
+                        <button label="查詢" />
+                    </hbox>
+                </row>
+                <row spans="4">
+
+                    <listbox id="objListbox" width="">
+                        <listhead>
+                            <listheader label="參數分類"/>
+                            <listheader label="參數名稱" width="150px"/>
+                            <listheader label="參數值" width="200px"/>
+                            <listheader label="多國語言參數值"/>
+                        </listhead>
+
+                    </listbox>
+
+
+                </row>
+            </rows>
+        </grid>

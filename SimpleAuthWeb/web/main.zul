@@ -1,0 +1,75 @@
+<?page title="Simple Auth Web" contentType="text/html;charset=UTF-8"?>
+<zk>
+    <window id="main">
+
+        <borderlayout height="800px" width="100%" 
+apply="com.gisbim.simpleAuthWeb.uiController.MainController">
+            <north size="60px" border="0">
+                <label style="position:relative; top:15px; padding-left: 50px; font-size:24px;color:#008BB6;font-weight:bold; " value="簡易登入認證平台"/>
+            </north>
+	<!-- Sidebar -->
+            <west size="18%" title="Main Functions" flex="true" 
+                       splittable="true" collapsible="true" margins="0,5,0,0">
+                <grid>
+                    <rows>
+                        <row>
+                            <hbox>
+                                <label value="Auth：" />
+                                <label id="roleName" value="N/A" />
+                            </hbox>
+                        </row>
+                        <row>
+                            <hbox>
+                                <label value="User：" />
+                                <label id="userName" value="N/A" />
+                            </hbox>
+                        </row>
+                        <row>
+                            <button id="logout" label="logout"/>
+                        </row>
+                        <row>
+		            <!-- fun tree  -->
+                            <tree id="funTree" hflex="1">
+                            <treecols>
+                                <treecol hflex="1" label="功能" />
+                            </treecols>
+                            <template name="model">
+                                <treeitem>
+                                    <treerow>
+                                        <treecell label="${each.data.funName}"/>
+                                    </treerow>
+                                </treeitem>
+                            </template>
+                            </tree>
+                        </row>
+                    </rows>
+                </grid>
+            </west>
+	<!-- Content -->
+            <center flex="true" autoscroll="true">
+                <tabbox id ="mainTab" width="">
+                    <tabs id="tbs">
+                        <tab label="初始頁面" closable="false" />
+                    </tabs>
+                    <tabpanels id="tps">
+                        <tabpanel>
+                        </tabpanel>
+                    </tabpanels>
+                </tabbox>
+            </center>
+            <south size="30px" border="0">
+                <toolbar mold="panel" align="center">
+                    <toolbarbutton label="Sign in"/>
+                    <toolbarbutton label="Home"/>
+                    <toolbarbutton label="Sitemap"/>
+                    <toolbarbutton label="Terms"/>
+                    <toolbarbutton label="Report Abuse"/>
+                    <toolbarbutton label="Print"/>
+                    <separator orient="vertical" bar="true"/>
+			Powered by
+                    <toolbarbutton label="vivivCloud"/>
+                </toolbar>
+            </south>
+        </borderlayout>
+    </window>
+</zk>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="jumpWin" title="${labels.rcv_zul.title}" width="300px" mode="overlapped"
+position="center,center"  use="com.gisbim.simpleAuthWeb.uiController.RcvLogin">
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>
+                    <label id="" value="${labels.rcv_zul.account}"/>
+                    <textbox id="UxAccount" value="admin"/>
+                </row>
+                <row>
+                    <label id="" value="${labels.rcv_zul.password}"/>
+                    <textbox  id="UxPassword" type="password" value="admin"/>
+                </row>
+                <row>
+                    <label id="" value=""/>
+                    <button label="${labels.rcv_zul.submit}" onClick="jumpWin.login()"/>
+                </row>
+            </rows>
+        </grid>
+    </window>
+</zk>
