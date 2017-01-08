@@ -3,12 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/GitRepo/simpleAuth/SimpleAuthWeb/web/main.zul</file>
-            <file>file:/D:/GitRepo/simpleAuth/SimpleAuthWeb/src/java/log4j.properties</file>
-            <file>file:/D:/GitRepo/simpleAuth/SimpleAuthWeb/web/WEB-INF/zk-label.properties</file>
-            <file>file:/D:/GitRepo/simpleAuth/SimpleAuthWeb/src/java/com/gisbim/simpleAuthWeb/uiController/MainController.java</file>
             <file>file:/D:/GitRepo/simpleAuth/SimpleAuthWeb/src/java/com/gisbim/simpleAuthWeb/uiController/RcvLogin.java</file>
-            <file>file:/D:/GitRepo/simpleAuth/SimpleAuthWeb/src/java/com/gisbim/simpleAuthWeb/uiController/RcvLogin.xml</file>
         </group>
     </open-files>
 </project-private>

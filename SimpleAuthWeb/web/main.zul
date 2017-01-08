@@ -3,7 +3,7 @@
     <window id="main">
 
         <borderlayout height="800px" width="100%" 
-apply="com.gisbim.simpleAuthWeb.uiController.MainController">
+                 apply="com.gisbim.simpleAuthWeb.uiController.MainController">
             <north size="60px" border="0">
                 <label style="position:relative; top:15px; padding-left: 50px; font-size:24px;color:#008BB6;font-weight:bold; " value="簡易登入認證平台"/>
             </north>

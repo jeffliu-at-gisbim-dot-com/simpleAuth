@@ -1,4 +1,4 @@
-        <grid>
+        <grid apply="com.gisbim.simpleAuthWeb.uiController.MainController">
             <columns>
                 <column label=""/>
                 <column label=""/>
@@ -34,10 +34,10 @@
                 <row spans="3">
                     <hbox align="end" widths="500px">
                         <label />
-                        <button label="新增" />
-                        <button label="修改" />
-                        <button label="刪除" />
-                        <button label="查詢" />
+                        <button id="add" label="新增" />
+                        <button id="update" label="修改" />
+                        <button id="delete" label="刪除" />
+                        <button id="query" label="查詢" />
                     </hbox>
                 </row>
                 <row spans="4">
